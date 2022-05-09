@@ -6,15 +6,11 @@ if ($_SERVER['REQUEST_METHOD'] != "DELETE") {
 
 require_once './cars.php';
 
-$input_json = file_get_contents("php://input");
-
-$input = json_decode($input_json, TRUE);
-
-$query = "UPDATE `cars` SET `make` = ?, `model` = ? WHERE `id` = ?";
+$query = "DELETE FROM cars WHERE id = ?";
 
 $stmt = mysqli_prepare($conn, $query);
 
-$stmt->bind_param("ssi", $input["make"], $input["model"], $_GET["id"]);
+$stmt->bind_param("i", $_GET["id"]);
 
 $success = $stmt->execute();
 
@@ -24,6 +20,6 @@ if ($success) {
     http_response_code(201);
     echo json_encode("Deletion completed");
 } else {
-    http_response_code(500);
+    http_response_code(400);
     echo json_encode($stmt->errno);
 };
