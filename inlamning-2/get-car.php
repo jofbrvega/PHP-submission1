@@ -10,9 +10,9 @@ $query = "SELECT * FROM cars WHERE id = ?";
 
 $stmt = mysqli_prepare($conn, $query);
 
-$stmt->bind_param("i", $_GET["id"]); // read-one.php?id=2 -> $_GET["id"] = 2
+$stmt->bind_param("i", $_GET["id"]); 
 
-$stmt->execute(); // JS = stmt.runFunction() === PHP = $stmt->run_function();
+$stmt->execute();
 
 $result = $stmt->get_result();
 

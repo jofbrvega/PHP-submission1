@@ -28,37 +28,3 @@ if($success) {
     http_response_code(500);
     echo json_encode($stmt->errno);
 }
-
-
-// $cars = [
-//     [
-//     "id" => "1",
-//     "make" => "Ford",
-//     "model" => "Equator",
-//     ], 
-//     [
-//     "id" => "2",
-//     "make" => "Tesla",
-//     "model" => "Model Y",
-//     ], 
-//     [
-//     "id" => "3",
-//     "make" => "Alfa Romeo",
-//     "model" => "Giulia",
-//     ], 
-//     [
-//     "id" => "4",
-//     "make" => "Skoda",
-//     "model" => "Yeti",
-//     ],
-// ];
-
-// $cars_json = json_encode($cars);
-
-// header('Content-type: application/json; charset=utf-8,'); 
-
-// echo $cars_json;
-
-// [HEADERS]
-// ----
-// [BODY] -->
